@@ -1,6 +1,7 @@
 <main x-data="app()" wire:key="power-outage" wire:ignore>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 
@@ -381,7 +382,6 @@
             return {
                 swiper: null,
                 init: init,
-
 
                 zip: @entangle("zip"),
                 first_name: @entangle("first_name"),
