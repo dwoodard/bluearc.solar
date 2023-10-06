@@ -40,11 +40,20 @@ class PowerOutage extends Component
       $data
     );
 
-    //go high level upsert
-    $contact = new \App\Http\GHL\Contact();
-    $contact->upsert($data);
 
-    $contact->response();
+
+
+    try {
+      //go high level upsert
+      $contact = new \App\Http\GHL\Contact();
+      $contact->create($data);
+      $contact->response();
+    } catch (\Exception $e) {
+
+
+      dd($data);
+      dd(json_encode($e->getMessage()));
+    }
   }
 
   public function updated($field)
