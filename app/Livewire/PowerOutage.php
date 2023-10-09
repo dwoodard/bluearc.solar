@@ -15,9 +15,9 @@ class PowerOutage extends Component
   public $last_name;
   public $email;
   public $phone;
-  public $credit_score;
+  public $credit_score = 300;
   public $was_refered = false;
-  public $avg_electric_bill_monthly  = 400;
+  public $avg_electric_bill_monthly  = 50;
 
   protected $rules = [
     'zip' => 'required|digits:5',
@@ -27,7 +27,7 @@ class PowerOutage extends Component
     'email' => 'required|email',
     'phone' => 'required|numeric',
     'was_refered' => 'required|boolean',
-    // 'credit_score' => 'required|numeric',
+    'credit_score' => 'required|numeric',
     'avg_electric_bill_monthly' => 'required',
   ];
 
@@ -49,10 +49,10 @@ class PowerOutage extends Component
       $contact->create($data);
       $contact->response();
     } catch (\Exception $e) {
-
-
-      dd($data);
-      dd(json_encode($e->getMessage()));
+      // can i log this out
+      // $wire::js('alert(' . json_encode($e->getMessage()) . ')';
+      // dd($data);
+      // dd(json_encode($e->getMessage()));
     }
   }
 

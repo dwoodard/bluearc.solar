@@ -83,7 +83,7 @@
                     </div>
                 </section>
 
-                {{-- Own Hom --}}
+                {{-- Own Home --}}
                 <section class="swiper-slide">
                     <div class="h-screen">
                         <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
@@ -124,6 +124,52 @@
                     </div>
                 </section>
 
+                {{-- Credit Score --}}
+                <section class="swiper-slide">
+                    <div class="h-screen">
+                        <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+                            <div class="mx-auto max-w-2xl text-center">
+                                <div>
+                                    Step 2:
+                                </div>
+                                <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                    What is your credit score?
+                                </h2>
+                                <div class="flex flex-col justify-center p-10">
+
+                                    <div class="m-auto flex h-32 w-64 items-center justify-center">
+                                        <div class="relative min-w-full py-1">
+                                            <div class="slidecontainer noSwipingClass">
+                                                <p class="text-center text-2xl font-bold text-gray-900">
+                                                    My Credit Score is: <span x-text="credit_score"></span>
+
+                                                </p>
+
+
+                                                <input type="range" x-model="credit_score" min="300"
+                                                       max="850"
+                                                       class="w-full">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="w-full p-3 md:w-auto">
+                                        <div class="-m-2 flex flex-wrap justify-center">
+                                            <div class="w-full p-2 md:w-auto">
+                                                <a x-on:click="  if(credit_score){
+                                                  swiper.slideNext();
+                                              }"
+                                                   class="block w-full rounded-full bg-green-600 px-8 py-3.5 text-center text-lg font-bold text-white hover:bg-green-600 focus:ring-4 focus:ring-blue-200"
+                                                   href="#">Next</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {{-- Electric Bill --}}
                 <section class="swiper-slide">
                     <div class="h-screen">
@@ -135,6 +181,11 @@
                                 <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                     What is your average monthly electric bill?
                                 </h2>
+                                <p>
+                                    On average, homeowners in your area pay $<span
+                                          x-text="avg_electric_bill_monthly"></span> per month for electricity.
+                                    Solar could save you up to 30% on your monthly bill.
+                                </p>
                                 <div class="flex flex-col justify-center p-10">
 
                                     <div class="m-auto flex h-32 w-64 items-center justify-center">
@@ -145,7 +196,8 @@
                                                 </p>
 
 
-                                                <input type="range" x-model="avg_electric_bill_monthly" min="50"
+                                                <input type="range" x-model="avg_electric_bill_monthly"
+                                                       min="50"
                                                        max="800" class="w-full">
                                             </div>
                                         </div>
@@ -155,8 +207,8 @@
                                         <div class="-m-2 flex flex-wrap justify-center">
                                             <div class="w-full p-2 md:w-auto">
                                                 <a x-on:click="  if(avg_electric_bill_monthly > 0){
-                                                    swiper.slideNext();
-                                                }"
+                                                swiper.slideNext();
+                                            }"
                                                    class="block w-full rounded-full bg-green-600 px-8 py-3.5 text-center text-lg font-bold text-white hover:bg-green-600 focus:ring-4 focus:ring-blue-200"
                                                    href="#">Next</a>
                                             </div>
