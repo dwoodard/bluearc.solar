@@ -15,6 +15,7 @@ class Lead extends Model
     'last_name',
     'email',
     'phone',
+    'address',
     'zip',
     'credit_score',
     'was_refered',

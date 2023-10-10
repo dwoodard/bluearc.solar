@@ -17,6 +17,7 @@ return new class extends Migration
       $table->string('last_name');
       $table->string('email');
       $table->string('phone');
+      $table->string('address')->nullable();
       $table->string('zip');
       $table->string('credit_score')->nullable();
       $table->boolean('was_refered')->default(false);

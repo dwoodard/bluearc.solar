@@ -176,16 +176,12 @@
                         <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
                             <div class="mx-auto max-w-2xl text-center">
                                 <div>
-                                    Step 2:
+                                    Step 3:
                                 </div>
                                 <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                     What is your average monthly electric bill?
                                 </h2>
-                                <p>
-                                    On average, homeowners in your area pay $<span
-                                          x-text="avg_electric_bill_monthly"></span> per month for electricity.
-                                    Solar could save you up to 30% on your monthly bill.
-                                </p>
+
                                 <div class="flex flex-col justify-center p-10">
 
                                     <div class="m-auto flex h-32 w-64 items-center justify-center">
@@ -226,7 +222,7 @@
                         <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
                             <div class="mx-auto max-w-2xl text-center">
                                 <div>
-                                    Step 3:
+                                    Step 4:
                                 </div>
                                 <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                     Where can we send your free solar quote?
@@ -341,22 +337,30 @@
                     </div>
                 </section>
 
-                {{-- Schedule a call --}}
-                <section class="swiper-slide">
+                {{-- Schedule a Appointment / Call --}}
+                <section class="swiper-slide overflow-y-scroll" x-data="{ open: false }">
                     <div class="h-screen w-full">
-                        <div class="bg-white px-3 py-24 sm:py-32">
+                        <div class="bg-white px-3"
+                             x-show="!open">
                             <div class="text-center">
-                                <div>
-                                    Step 5:
-                                </div>
-                                <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                    Let's talk about <br> <span class="italic underline">your</span> solar savings
-                                </h2>
-                                <p class="my-10">
-                                    Select how you would like to move forward
-                                </p>
-                                <div class="mx-auto flex w-[50%] justify-between">
+                                <div> Step 5: </div>
 
+                                <div class="mx-auto">
+                                    <div class="w-full py-10 md:w-auto">
+                                        <div class="-m-2 flex flex-wrap justify-center">
+                                            <div class="w-full p-2 md:w-auto">
+                                                <a
+                                                   x-on:click="open = true"
+                                                   class="block w-full rounded-full bg-green-600 px-8 py-3.5 text-center text-lg font-bold text-white hover:bg-green-600 focus:ring-4 focus:ring-blue-200"
+                                                   href="#">Calendar</a>
+
+                                                <p>
+                                                    Unable to speak right now? No problem. Select Calendar to find a
+                                                    time that works for you.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="py-10">
                                         <div class="-m-2 flex flex-wrap justify-center">
@@ -371,32 +375,31 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="w-full py-10 md:w-auto">
-                                        <div class="-m-2 flex flex-wrap justify-center">
-                                            <div class="w-full p-2 md:w-auto">
-                                                <a class="block w-full rounded-full bg-green-600 px-8 py-3.5 text-center text-lg font-bold text-white hover:bg-green-600 focus:ring-4 focus:ring-blue-200"
-                                                   href="#">Calendar</a>
-
-                                                <p>
-                                                    Unable to speak right now? No problem. Select Calendar to find a
-                                                    time that works for you.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- <iframe src="https://ghl_api.leadweb.pro/widget/booking/WS4Fg84uv4d5mNOxv41r" width="100%" height="700" frameborder="0"></iframe> --}}
                                 </div>
                             </div>
                         </div>
+
+                        <div x-show="open" class="container"
+                             styles="transform: rotate(90deg); transform-origin: center;overflow: scroll">
+                            <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src="https://api.gohighlevel.com/widget/booking/WS4Fg84uv4d5mNOxv41r"
+                                    style="transform-origin: top center; transform:scale(0.9);  "
+                                    scrolling="yes"
+                                    frameborder="0"
+                                    id="WS4Fg84uv4d5mNOxv41r_1696956027758"></iframe>
+                            <script src="https://api.gohighlevel.com/js/form_embed.js" type="text/javascript"></script>
+                        </div>
+
+
                     </div>
                 </section>
             </div>
 
 
-            <div class="swiper-pagination"></div>
-            <div class="swiper-scrollbar"></div>
+            {{-- <div class="swiper-pagination"></div>
+            <div class="swiper-scrollbar"></div> --}}
 
         </div>
     </form>
@@ -404,7 +407,8 @@
 
     <div class="prev-next-buttons hidden">
         <div class="absolute inset-y-0 left-0 z-10 flex items-center">
-            <button @click="swiper.slidePrev()"
+            <button
+                    x-on:click=" swiper.slideNext(); "
                     class="-ml-2 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow focus:outline-none lg:-ml-4">
                 <svg viewBox="0 0 20 20" fill="currentColor" class="chevron-left h-6 w-6">
                     <path fill-rule="evenodd"
@@ -416,7 +420,7 @@
 
 
         <div class="absolute inset-y-0 right-0 top-0 z-10 flex items-center p-10">
-            <button @click="swiper.slideNext()"
+            <button x-on:click=" swiper.slideNext(); "
                     class="-mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow focus:outline-none lg:-mr-4">
                 <svg viewBox="0 0 20 20" fill="currentColor" class="chevron-right h-6 w-6">
                     <path fill-rule="evenodd"
@@ -456,7 +460,7 @@
             this.swiper = new Swiper(this.$refs.container, {
 
                 direction: 'horizontal',
-                initialSlide: 0,
+                initialSlide: 7,
                 slidesPerView: 1,
                 spaceBetween: 0,
                 loop: false,
@@ -470,7 +474,7 @@
                 touchStartPreventDefault: false,
 
 
-                allowTouchMove: false,
+                allowTouchMove: true,
 
                 pagination: {
                     el: '.swiper-pagination',
