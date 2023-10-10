@@ -460,7 +460,7 @@
             this.swiper = new Swiper(this.$refs.container, {
 
                 direction: 'horizontal',
-                initialSlide: 7,
+                initialSlide: 0,
                 slidesPerView: 1,
                 spaceBetween: 0,
                 loop: false,
@@ -474,7 +474,7 @@
                 touchStartPreventDefault: false,
 
 
-                allowTouchMove: true,
+                allowTouchMove: false,
 
                 pagination: {
                     el: '.swiper-pagination',
